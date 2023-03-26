@@ -6,8 +6,10 @@ const bcrypt = require("bcrypt");
 
 userRouter.get("/", async (req, res) => {
     const users = await UserModel.find();
+    console.log(users)
     res.status(200).send({ "user": users });
 })
+
 //Registration
 userRouter.post("/register", async (req, res) => {
     const { email, pass, location, age } = req.body
