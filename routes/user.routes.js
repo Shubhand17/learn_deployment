@@ -4,7 +4,10 @@ const userRouter = express.Router()
 const jwt = require("jsonwebtoken")
 const bcrypt = require("bcrypt");
 
-
+userRouter.get("/", async (req, res) => {
+    const users = await UserModel.find();
+    res.status(200).send({ "user": users });
+})
 //Registration
 userRouter.post("/register", async (req, res) => {
     const { email, pass, location, age } = req.body
@@ -28,7 +31,7 @@ userRouter.post("/login", async (req, res) => {
     const { email, pass } = req.body
 
     try {
-        const user = await UserModel.findOne({email})
+        const user = await UserModel.findOne({ email })
         console.log(user)
         if (user) {
             bcrypt.compare(pass, user.pass, (err, result) => {
