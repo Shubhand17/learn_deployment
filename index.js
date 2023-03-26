@@ -8,7 +8,7 @@ const app = express()
 app.use(express.json())
 
 
-app.use("/", (req, res) => {
+app.get("/", (req, res) => {
     res.send("Homepage")
 })
 app.use("/users", userRouter)
