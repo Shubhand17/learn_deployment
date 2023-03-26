@@ -1,7 +1,7 @@
-const mongoose = require ("mongoose")
+const mongoose = require("mongoose")
 
-const connection = mongoose.connect("mongodb://127.0.0.1:27017/authlecture")
+const connection = mongoose.connect("mongodb+srv://shubham:shubham@cluster0.9w1kghu.mongodb.net/authlecture?retryWrites=true&w=majority")
 
-module.exports={
+module.exports = {
     connection
 }
